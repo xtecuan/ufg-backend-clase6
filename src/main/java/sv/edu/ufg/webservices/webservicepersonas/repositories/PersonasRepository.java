@@ -37,8 +37,8 @@ public class PersonasRepository {
             return null;
         }
     }
-    
-    public Personas fromDTO2Entity(PersonasDTO dto){
+
+    public Personas fromDTO2Entity(PersonasDTO dto) {
         Personas p = new Personas();
         p.setNombres(dto.getNombres());
         p.setApellidos(dto.getApellidos());
@@ -47,25 +47,25 @@ public class PersonasRepository {
         p.setFechaNacimiento(dto.getFechaNacimiento());
         return p;
     }
-    
-    @Transactional
-    public void save(PersonasDTO dto){
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public void save(PersonasDTO dto) {
         Personas p = fromDTO2Entity(dto);
         entityManager.persist(p);
         //entityManager.refresh(p);
     }
-    
-    @Transactional
-    public void delete(Long idPersona){
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public void delete(Long idPersona) {
         entityManager.remove(findById(idPersona));
     }
-    
-    @Transactional
-    public void update(PersonasDTO dto,Long idPersona){
-        
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public void update(PersonasDTO dto, Long idPersona) {
+
         Personas p = fromDTO2Entity(dto);
         p.setIdPersona(idPersona);
-        
+
         entityManager.merge(p);
         //entityManager.refresh(p);
     }
