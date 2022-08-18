@@ -7,7 +7,7 @@
         <property name="databaseName" value="personas"/>
         <property name="User" value="personas"/>
         <property name="Password" value="personas123"/>
-        <property name="URL" value="jdbc:postgresql://172.16.0.129:5432/personas"/>
+        <property name="URL" value="jdbc:postgresql://localhost:5432/personas"/>
         <property name="driverClass" value="org.postgresql.Driver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="jdbc/personas" object-type="user" pool-name="post-gre-sql_personas_personasPool"/>
